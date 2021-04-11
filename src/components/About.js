@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 
 import UpdateBar from "./Reusables/UpdateBar";
 import BackArrow from "./Reusables/BackArrow";
+
+import { DataContext } from "../DataBase/DataContext";
 
 const AboutStyles = styled.div`
   height: 100vh;
@@ -31,6 +34,9 @@ const AboutStyles = styled.div`
   label {
     color: var(--grey);
   }
+  .updateBar {
+    grid-row-start: 3;
+  }
   .wrapper {
     padding: 0px 20px;
     height: 100%;
@@ -38,25 +44,65 @@ const AboutStyles = styled.div`
   .inputWrapper {
     border: 2px solid var(--lightGrey);
     padding: 8px;
+    height: 100%;
+  }
+  @media (min-width: 768px) {
+    h1 {
+      text-align: center;
+    }
+    .inputDiv {
+      display: flex;
+      justify-content: center;
+    }
+    .inputWrapper {
+      width: 70%;
+      margin-bottom: 10px;
+    }
+    .updateBar {
+      justify-self: center;
+      width: 50%;
+    }
   }
 `;
 
 export default function About() {
+  // context values are set to usestate hooks in App.js containing our profile data
+  const { profileData, setProfileData, updateProfileData } = useContext(
+    DataContext
+  );
+
+  // call useHistory to redirect to homepage after updating data
+  const history = useHistory();
+
+  // update to firebase
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    updateProfileData.updateData({ ...profileData });
+    history.push("/");
+  };
+  // method to deal with two-way binding
+  const handleAboutChange = (e) => {
+    setProfileData({ ...profileData, about: e.target.value });
+  };
   return (
     <AboutStyles>
       <BackArrow />
       <div className="wrapper">
         <h1>What type of passenger are you?</h1>
-        <form>
-          <div className="inputWrapper">
-            <textarea
-              type="email"
-              name="email"
-              placeholder="Write a little bit about yourself. Do you like chatting? Are you smoker? Do you bring pets with you? Etc."
-              required
-            />
+        <form onSubmit={handleSubmit}>
+          <div className="inputDiv">
+            <div className="inputWrapper">
+              <textarea
+                name="about"
+                value={profileData.about}
+                onChange={handleAboutChange}
+                required
+              />
+            </div>
           </div>
-          <UpdateBar />
+          <div className="updateBar">
+            <UpdateBar />
+          </div>
         </form>
       </div>
     </AboutStyles>

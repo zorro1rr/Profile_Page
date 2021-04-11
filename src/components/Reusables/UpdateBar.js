@@ -6,17 +6,20 @@ const UpdateBarStyles = styled.div`
   align-items: center;
   justify-content: center;
   height: 55px;
-  grid-row-start: 3;
   background-color: var(--black);
   color: #f9f9f9;
   box-shadow: 1px 1px 15px #5b5b5b;
-
-  input[type="submit"] {
+  width: 100%;
+  input[type="submit"],
+  input[type="submit"]:focus {
     border: none;
+    outline: none;
     background-color: var(--black);
     color: #f9f9f9;
     padding: 0;
     font-size: 1rem;
+    width: 100%;
+    height: 100%;
   }
 `;
 

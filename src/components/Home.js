@@ -1,14 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import { AiOutlineRight } from "react-icons/ai";
 import { GoPencil } from "react-icons/go";
 
-import Shippo from "../images/shippo2.png";
+import { DataContext } from "../DataBase/DataContext";
 
 const HomeStyles = styled.div`
-  width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -54,7 +53,6 @@ const HomeStyles = styled.div`
     border-radius: 50%;
     overflow: visible;
   }
-
   .inputs {
     display: flex;
     justify-content: space-between;
@@ -75,18 +73,14 @@ const HomeStyles = styled.div`
   .label {
     color: var(--grey);
   }
+  .infoDiv > p {
+    margin: 12px 0;
+  }
 `;
 
 export default function Home() {
-  // State for user info
-  const [info, setInfo] = useState({
-    fname: "Justin",
-    lname: "Howard",
-    phone: "(202) 867-5309",
-    email: "Timcook@icloud.com",
-    about:
-      "Write a little bit about yourself. Do you like chatting? Are you a smoker? Do you bring pets with you? Etc.",
-  });
+  // context values are set to usestate hooks in App.js containing our profile data
+  const { profileData, image } = useContext(DataContext);
 
   return (
     <HomeStyles>
@@ -97,35 +91,35 @@ export default function Home() {
             <GoPencil className="pencil" />
           </div>
           <div className="profileBorder">
-            <img src={Shippo} alt="" />
+            <img src={image} alt="" />
           </div>
         </div>
       </Link>
       <Link className="inputs" to="/name">
         <div className="infoDiv">
           <p className="label">Name</p>
-          <p>{info.fname + " " + info.lname}</p>
+          <p>{profileData.fname + " " + profileData.lname}</p>
         </div>
         <AiOutlineRight className="arrow" />
       </Link>
       <Link className="inputs" to="/phone">
         <div className="infoDiv">
           <p className="label">Phone</p>
-          <p>{info.phone}</p>
+          <p>{profileData.phone}</p>
         </div>
         <AiOutlineRight className="arrow" />
       </Link>
       <Link className="inputs" to="/email">
         <div className="infoDiv">
           <p className="label">Email</p>
-          <p>{info.email}</p>
+          <p>{profileData.email}</p>
         </div>
         <AiOutlineRight className="arrow" />
       </Link>
       <Link className="inputs" to="/about">
         <div className="infoDiv">
           <p className="label">Tell us about yourself</p>
-          <p>{info.about}</p>
+          <p>{profileData.about}</p>
         </div>
         <AiOutlineRight className="arrow" />
       </Link>
