@@ -14,37 +14,36 @@ const PhotoStyles = styled.div`
   font-weight: 700;
   color: var(--black);
   width: 92%;
-  h1 {
-    font-size: 1.4rem;
-    padding: 10px 0;
-    text-align: center;
-  }
-  img {
-    width: 300px;
-    justify-self: center;
-  }
-  input {
-    margin-bottom: 15px;
-    font-weight: 700;
-  }
-
-  .picWrapper {
-    display: grid;
-    grid-template-rows: auto 1fr 12%;
-    height: 50%;
-    width: 100%;
-    justify-content: center;
-  }
   .wrapper {
     padding: 0px 20px;
     height: 100%;
+    h1 {
+      font-size: 1.4rem;
+      padding: 10px 0;
+      text-align: center;
+    }
+    .picWrapper {
+      display: grid;
+      grid-template-rows: auto 1fr 12%;
+      height: 50%;
+      width: 100%;
+      justify-content: center;
+      img {
+        width: 300px;
+        justify-self: center;
+      }
+      .updateBar {
+        grid-row-start: 3;
+        input {
+          margin-bottom: 15px;
+          font-weight: 700;
+        }
+      }
+    }
   }
   .inputWrapper {
     border: 2px solid var(--lightGrey);
     padding: 8px;
-  }
-  .updateBar {
-    grid-row-start: 3;
   }
   .progress {
     justify-self: center;

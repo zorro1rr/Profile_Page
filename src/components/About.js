@@ -12,40 +12,39 @@ const AboutStyles = styled.div`
   padding: 15px;
   font-weight: 700;
   color: var(--black);
-  h1 {
-    font-size: 1.4rem;
-    padding: 10px 0;
-  }
-  form {
-    display: grid;
-    grid-template-rows: 45% 1fr 12%;
-    height: 50%;
-  }
-  textarea,
-  textarea:focus {
-    font-weight: 700;
-    outline: none;
-    border: none;
-    background-color: transparent;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-  }
-  label {
-    color: var(--grey);
-  }
-  .updateBar {
-    grid-row-start: 3;
-  }
+
   .wrapper {
     padding: 0px 20px;
     height: 100%;
+    h1 {
+      font-size: 1.4rem;
+      padding: 10px 0;
+    }
+    form {
+      display: grid;
+      grid-template-rows: 45% 1fr 12%;
+      height: 50%;
+      .inputWrapper {
+        border: 2px solid var(--lightGrey);
+        padding: 8px;
+        height: 100%;
+        textarea,
+        textarea:focus {
+          font-weight: 700;
+          outline: none;
+          border: none;
+          background-color: transparent;
+          width: 100%;
+          height: 100%;
+          overflow: auto;
+        }
+      }
+      .updateBar {
+        grid-row-start: 3;
+      }
+    }
   }
-  .inputWrapper {
-    border: 2px solid var(--lightGrey);
-    padding: 8px;
-    height: 100%;
-  }
+
   @media (min-width: 768px) {
     h1 {
       text-align: center;
@@ -53,10 +52,10 @@ const AboutStyles = styled.div`
     .inputDiv {
       display: flex;
       justify-content: center;
-    }
-    .inputWrapper {
-      width: 70%;
-      margin-bottom: 10px;
+      .inputWrapper {
+        width: 70%;
+        margin-bottom: 10px;
+      }
     }
     .updateBar {
       justify-self: center;

@@ -16,42 +16,39 @@ const HomeStyles = styled.div`
     color: var(--blue);
     font-size: 1.5rem;
   }
-  p {
-    font-weight: 700;
-  }
-  img {
-    height: 146px;
-    width: 194px;
-    clip-path: circle(31.6% at 50% 50%);
-  }
   .profileWrap {
     display: grid;
     grid-template-columns: repeat(20, 20px);
     grid-template-rows: 20px 20px 1fr;
     position: relative;
     height: 150px;
-  }
-  .profileBorder {
-    clip-path: circle(34.5% at 50% 50%);
-    display: inline-block;
-    grid-column: 6 / span 5;
-    grid-row: 1;
-    height: 146px;
-    width: 194px;
-    background: var(--blue);
-    box-sizing: border-box;
-  }
-  .pencilWrap {
-    grid-column: 12 / span 2;
-    grid-row: 2;
-    z-index: 2;
-  }
-  .pencil {
-    color: var(--blue);
-    background-color: #ffffff;
-    padding: 6px;
-    border-radius: 50%;
-    overflow: visible;
+    .pencilWrap {
+      grid-column: 12 / span 2;
+      grid-row: 2;
+      z-index: 2;
+      .pencil {
+        color: var(--blue);
+        background-color: #ffffff;
+        padding: 6px;
+        border-radius: 50%;
+        overflow: visible;
+      }
+    }
+    .profileBorder {
+      clip-path: circle(34.5% at 50% 50%);
+      display: inline-block;
+      grid-column: 6 / span 5;
+      grid-row: 1;
+      height: 146px;
+      width: 194px;
+      background: var(--blue);
+      box-sizing: border-box;
+      img {
+        height: 146px;
+        width: 194px;
+        clip-path: circle(31.6% at 50% 50%);
+      }
+    }
   }
   .inputs {
     display: flex;
@@ -61,20 +58,23 @@ const HomeStyles = styled.div`
     text-decoration: none;
     border-bottom: 1px solid var(--grey);
     color: var(--black);
-  }
-  .arrow {
-    font-size: 1.4rem;
-    min-width: 16px;
-    color: var(--grey);
-  }
-  .infoDiv {
-    max-width: 90%;
-  }
-  .label {
-    color: var(--grey);
-  }
-  .infoDiv > p {
-    margin: 12px 0;
+    .infoDiv {
+      max-width: 90%;
+      .label {
+        color: var(--grey);
+      }
+      p {
+        font-weight: 700;
+      }
+    }
+    .infoDiv > p {
+      margin: 12px 0;
+    }
+    .arrow {
+      font-size: 1.4rem;
+      min-width: 16px;
+      color: var(--grey);
+    }
   }
 `;
 

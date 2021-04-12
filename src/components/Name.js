@@ -13,44 +13,44 @@ const NameStyles = styled.div`
   font-weight: 700;
   color: var(--black);
 
-  h1 {
-    font-size: 1.4rem;
-    padding: 10px 0;
-  }
-  form {
-    display: grid;
-    grid-template-rows: auto 1fr 12%;
-    height: 50%;
-  }
-  label {
-    color: var(--grey);
-  }
-  input,
-  input:focus {
-    padding-top: 8px;
-    font-weight: 700;
-    outline: none;
-    border: none;
-    background-color: transparent;
-    width: 100%;
-  }
   .updateBar {
     grid-row-start: 3;
   }
   .wrapper {
     padding: 0px 20px;
     height: 100%;
-  }
-  .inputsDiv {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 15px;
-  }
-  .inputWrapper {
-    display: inline-block;
-    border: 2px solid var(--lightGrey);
-    width: 40%;
-    padding: 8px;
+    h1 {
+      font-size: 1.4rem;
+      padding: 10px 0;
+    }
+    form {
+      display: grid;
+      grid-template-rows: auto 1fr 12%;
+      height: 50%;
+      .inputsDiv {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 15px;
+        .inputWrapper {
+          display: inline-block;
+          border: 2px solid var(--lightGrey);
+          width: 40%;
+          padding: 8px;
+          label {
+            color: var(--grey);
+          }
+          input,
+          input:focus {
+            padding-top: 8px;
+            font-weight: 700;
+            outline: none;
+            border: none;
+            background-color: transparent;
+            width: 100%;
+          }
+        }
+      }
+    }
   }
   @media (min-width: 768px) {
     h1 {
@@ -59,11 +59,12 @@ const NameStyles = styled.div`
     .inputsDiv {
       flex-direction: column;
       align-items: center;
+      .inputWrapper {
+        width: 70%;
+        margin-bottom: 10px;
+      }
     }
-    .inputWrapper {
-      width: 70%;
-      margin-bottom: 10px;
-    }
+
     .updateBar {
       justify-self: center;
       width: 50%;
