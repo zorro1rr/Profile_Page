@@ -113,7 +113,6 @@ export default function Photo() {
           .child(imageFile.name)
           .getDownloadURL()
           .then((url) => {
-            // setUrl(url);
             setImage(url);
             setProgress(0);
           });
